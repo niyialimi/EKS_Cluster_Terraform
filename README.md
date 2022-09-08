@@ -1,5 +1,8 @@
 # Provisioning an AWS Kubernetes Cluster (EKS) with Terraform
 <p align="center"><img align="center" src="images/what-is-eks.png"></p>
+Source: https://docs.google.com/document/d/1cZ7I9sU9rOXyJw4EXCv18DB-1d9yIqQ4795dOLzHvAc/edit#heading=h.twxsjxp3cpf5
+
+
 - [Provisioning an AWS Kubernetes Cluster (EKS) with Terraform](#Provisioning-an-aws-kubernetes-cluster-eks-with-terraform)
   - [Introduction](#introduction)
   - [Kubernetes](#kubernetes)
@@ -12,8 +15,7 @@
 
 Manual provisioning of resources is now a thing of the past for cloud engineers as valuable time is being spent on doing value-driven work with automation. Repeatable and consistent  practices are now formidable practices in the cloud when it comes to workload scalability, and terraform stands tall in this regard.
 
-In this article, I demonstrated how to provision an Amazon EKS cluster with Terraform step by step. Though it may be easier and more efficient to make use of public modules, for a better understanding of each component of the EKS, I’ve decided to do the hard way by writing my own module. Let’s get started!
-
+Here is a demo of how to provision an Amazon EKS cluster with Terraform step by step. Though it may be easier and more efficient to make use of public modules, for a better understanding of each component of the EKS, I’ve decided to do the hard way by writing my own module. Let’s get started!
 
 ## Kubernetes
 
@@ -49,9 +51,11 @@ Correct tools selection is really important in the CI setup, and the following t
 Once the prerequisites are met, we can start writing the code to create an EKS cluster.
 
 **Step1: Terraform Initial Setup Configuration**
+
 Create an AWS provider.tf and the version.tf to interact with the AWS resources. Also create a remote_state.tf file to save the state file.
 
 **Step 2: Networking Module**
+
 For the network infrastructure, we will be creating the following:
 - AWS VPC (Virtual Private Cloud) of 10.0.0.0/16 CIDR range
 - Public and Private Subnets in different availability zones. A list of availability zones available will be auto-generated.
@@ -61,6 +65,7 @@ For the network infrastructure, we will be creating the following:
 - Two Routing Tables (1 for public and 1 for Private) and associate the subnets with them. Security Groups and associate subnets with them
 
 **Step 3: Cluster Module**
+
 EKS nodes need IAM roles to make calls to other AWS services (eks-node-group). These roles are attached with policies that allow assuming the temporary security credentials on the instance to access other AWS resources.
 
 For the cluster infrastructure, we will be creating the following:
@@ -72,6 +77,7 @@ For the cluster infrastructure, we will be creating the following:
 **Step 4: Using the modules created to provision the Cluster with all the needed resources**
 
 **Step 5: Terraform execution to provision the resources**
+
 At this stage, all the necessary files are in place and it’s time to create the cluster. To provision the cluster, cd into the root directory and run the terraform commands:
 - terrafom init
 - terrafom validate
@@ -79,7 +85,9 @@ At this stage, all the necessary files are in place and it’s time to create th
 - terrafom apply
 
 **Step 6: Connecting the Cluster**
+
 The same AWS account profile that provisioned the infrastructure can be used to connect to the cluster by updating the local kubeconfig
 
 **Step 7: Verifying the resources provisioned**
+
 Navigate to the AWS Console and verify the resources created. You can also do a quick checkup with some commands.
