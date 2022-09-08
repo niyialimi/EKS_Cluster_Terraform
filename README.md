@@ -1,7 +1,5 @@
 # Provisioning an AWS Kubernetes Cluster (EKS) with Terraform
-<p align="center"><img align="center" src="images/what-is-eks.png"></p>
-Source: https://docs.google.com/document/d/1cZ7I9sU9rOXyJw4EXCv18DB-1d9yIqQ4795dOLzHvAc/edit#heading=h.twxsjxp3cpf5
-
+<p align="center"><a href="https://docs.google.com/document/d/1cZ7I9sU9rOXyJw4EXCv18DB-1d9yIqQ4795dOLzHvAc/edit#heading=h.twxsjxp3cpf5"><img align="center" src="images/what-is-eks.png"></a></p>
 
 - [Provisioning an AWS Kubernetes Cluster (EKS) with Terraform](#Provisioning-an-aws-kubernetes-cluster-eks-with-terraform)
   - [Introduction](#introduction)
