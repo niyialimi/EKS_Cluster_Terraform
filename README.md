@@ -48,11 +48,11 @@ Correct tools selection is really important in the CI setup, and the following t
 
 Once the prerequisites are met, we can start writing the code to create an EKS cluster.
 
-**Step1: Terraform Initial Setup Configuration**
+### Step1: Terraform Initial Setup Configuration
 
 Create an AWS provider.tf and the version.tf to interact with the AWS resources. Also create a remote_state.tf file to save the state file.
 
-**Step 2: Networking Module**
+### Step 2: Networking Module
 
 For the network infrastructure, we will be creating the following:
 - AWS VPC (Virtual Private Cloud) of 10.0.0.0/16 CIDR range
@@ -62,7 +62,7 @@ For the network infrastructure, we will be creating the following:
 - NAT Gateway in public subnets to allow services in the private subnets to connect to the internet. 
 - Two Routing Tables (1 for public and 1 for Private) and associate the subnets with them. Security Groups and associate subnets with them
 
-**Step 3: Cluster Module**
+### Step 3: Cluster Module
 
 EKS nodes need IAM roles to make calls to other AWS services (eks-node-group). These roles are attached with policies that allow assuming the temporary security credentials on the instance to access other AWS resources.
 
@@ -72,9 +72,9 @@ For the cluster infrastructure, we will be creating the following:
 - IAM role and role attachments to the policy (**AmazonEKSWorkerNodePolicy**, **AmazonEKS_CNI_Policy** and **AmazonEC2ContainerRegistryReadOnly**) for the worker nodes. 
 - Security groups for the cluster and the nodes.
 
-**Step 4: Using the modules created to provision the Cluster with all the needed resources**
+### Step 4: Using the modules created to provision the Cluster with all the needed resources
 
-**Step 5: Terraform execution to provision the resources**
+### Step 5: Terraform execution to provision the resources
 
 At this stage, all the necessary files are in place and it’s time to create the cluster. To provision the cluster, cd into the root directory and run the terraform commands:
 - terrafom init
@@ -82,10 +82,10 @@ At this stage, all the necessary files are in place and it’s time to create th
 - terrafom plan
 - terrafom apply
 
-**Step 6: Connecting the Cluster**
+### Step 6: Connecting the Cluster
 
 The same AWS account profile that provisioned the infrastructure can be used to connect to the cluster by updating the local kubeconfig
 
-**Step 7: Verifying the resources provisioned**
+### Step 7: Verifying the resources provisioned
 
 Navigate to the AWS Console and verify the resources created. You can also do a quick checkup with some commands.
