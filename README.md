@@ -35,7 +35,7 @@ A cluster is a collection of two or more or nodes working together to achieve a 
 
 Before we start provisioning an EKS Cluster,  there are a few prerequisites you need to have in mind and on hand.
 
-**Prerequisites**
+### Prerequisites
 
 Correct tools selection is really important in the CI setup, and the following tools are used for the demo in this article.
 
