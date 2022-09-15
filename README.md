@@ -89,3 +89,11 @@ The same AWS account profile that provisioned the infrastructure can be used to 
 ### Step 7: Verifying the resources provisioned
 
 Navigate to the AWS Console and verify the resources created. You can also do a quick checkup with some commands.
+
+### Step 8: Testing - Deploy a simple Application in the cluster
+
+Deploy a simple voting application to test that our provisioned resources work as expected. The Kubernetes specification files for the voting application in a directory then cd into that directory.
+
+### Step 9: Cleanup
+
+Destroy infrastructure with Terraform, ensure you're at the directory where the apply was made and then run terraform destroy.
